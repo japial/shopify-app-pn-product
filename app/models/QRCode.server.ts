@@ -2,7 +2,7 @@ import qrcode from "qrcode";
 import invariant from "tiny-invariant";
 import db from "../db.server";
 
-export async function getQRCode(id, graphql) {
+export async function getQRCode(id: number, graphql: any) {
   const qrCode = await db.qRCode.findFirst({ where: { id } });
 
   if (!qrCode) {
@@ -12,7 +12,7 @@ export async function getQRCode(id, graphql) {
   return supplementQRCode(qrCode, graphql);
 }
 
-export async function getQRCodes(shop, graphql) {
+export async function getQRCodes(shop: string, graphql: any) {
   const qrCodes = await db.qRCode.findMany({
     where: { shop },
     orderBy: { id: "desc" },
@@ -25,7 +25,7 @@ export async function getQRCodes(shop, graphql) {
   );
 }
 
-export function getQRCodeImage(id) {
+export function getQRCodeImage(id: number) {
   const url = new URL(`/qrcodes/${id}/scan`, process.env.SHOPIFY_APP_URL);
   return qrcode.toDataURL(url.href);
 }
