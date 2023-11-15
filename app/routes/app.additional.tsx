@@ -18,6 +18,17 @@ export default function AdditionalPage() {
           <Card>
             <BlockStack gap="300">
               <Text as="p" variant="bodyMd">
+                This App Developed By
+                <Link
+                    url="https://jahangirpial.com"
+                    target="_blank"
+                    removeUnderline
+                >
+                  Jahangir Pial
+                </Link>
+                .
+              </Text>
+              <Text as="p" variant="bodyMd">
                 The app template comes with an additional page which
                 demonstrates how to create multiple pages within app navigation
                 using{" "}
